@@ -1,0 +1,44 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        // Input string
+        string input = "programming is fun";
+        
+        // Process the input to reverse the words
+        string result = ReverseWordsWithoutBuiltInFunctions(input);
+        
+        // Output the result
+        Console.WriteLine(result);  // Output: fun is programming
+    }
+
+    static string ReverseWordsWithoutBuiltInFunctions(string input)
+    {
+        // Step 1: Create an empty result string and a temporary word holder
+        string result = "";
+        string word = "";
+
+        // Step 2: Loop through each character of the string
+        for (int i = 0; i < input.Length; i++)
+        {
+            // If a space is encountered, append the current word to the result
+            if (input[i] == ' ')
+            {
+                result = word + " " + result;  // Add word to the front of result
+                word = ""; // Reset the word holder
+            }
+            else
+            {
+                // Build the current word
+                word += input[i];
+            }
+        }
+
+        // Step 3: Add the last word to the result
+        result = word + (result.Length > 0 ? " " + result : "");
+
+        return result;
+    }
+}
