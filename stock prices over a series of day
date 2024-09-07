@@ -1,0 +1,32 @@
+
+using System;
+
+public class StockProfitCalculator
+{
+    public static int MaxProfit(int[] prices)
+    {
+        if (prices == null || prices.Length < 2)
+            return 0;
+
+        int maxProfit = 0;
+        for (int i = 1; i < prices.Length; i++)
+        {
+            // Check if selling today is profitable
+            if (prices[i] > prices[i - 1])
+            {
+                // Accumulate the profit
+                maxProfit += prices[i] - prices[i - 1];
+            }
+        }
+
+        return maxProfit;
+    }
+
+    public static void Main(string[] args)
+    {
+        int[] prices = { 7, 3, 2, 5, 6, 3, 7, 4, 1, 10 };
+        int profit = MaxProfit(prices);
+        Console.WriteLine($"Maximum Profit: {profit}"); //17
+    }
+}
+
