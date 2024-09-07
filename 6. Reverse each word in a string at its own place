@@ -1,0 +1,44 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        // Input string
+        string input = "Hello world";
+
+        // Split the string into words
+        string[] words = input.Split(' ');
+
+        // Loop through each word
+        for (int i = 0; i < words.Length; i++)
+        {
+            words[i] = ReverseWord(words[i]);
+        }
+
+        // Join the reversed words back into a single string
+        string result = string.Join(" ", words);
+
+        // Output the result
+        Console.WriteLine(result);
+    }
+
+    // Function to reverse a single word using for loop
+    static string ReverseWord(string word)
+    {
+        // Convert the word to a char array
+        char[] charArray = word.ToCharArray();
+
+        // Use a for loop to reverse the characters
+        for (int i = 0, j = word.Length - 1; i < j; i++, j--)
+        {
+            // Swap the characters
+            char temp = charArray[i];
+            charArray[i] = charArray[j];
+            charArray[j] = temp;
+        }
+
+        // Return the reversed word as a string
+        return new string(charArray);
+    }
+}
