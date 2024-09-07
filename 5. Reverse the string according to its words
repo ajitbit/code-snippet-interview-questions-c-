@@ -1,0 +1,28 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        // Input string
+        string input = "programming is fun";
+
+        // Process the input to reverse the words
+        string result = ReverseWords(input);
+
+        // Output the result
+        Console.WriteLine(result);  // Output: fun is programming
+    }
+
+    static string ReverseWords(string input)
+    {
+        // Split the input string into words
+        string[] words = input.Split(' ');
+
+        // Reverse the array of words
+        Array.Reverse(words);
+
+        // Join the reversed words into a single string
+        return string.Join(" ", words);
+    }
+}
