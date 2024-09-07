@@ -1,0 +1,44 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        // Input array
+        int[] array = { 1, 2, 3, 4, 5 };
+
+        // Perform left circular rotation
+        LeftCircularRotate(array);
+
+        // Print the rotated array
+        PrintArray(array);
+    }
+
+    static void LeftCircularRotate(int[] array)
+    {
+        if (array == null || array.Length <= 1)
+        {
+            return; // No rotation needed for null or single element arrays
+        }
+
+        int firstElement = array[0];
+
+        // Shift elements to the left
+        for (int i = 0; i < array.Length - 1; i++)
+        {
+            array[i] = array[i + 1];
+        }
+
+        // Place the first element at the end
+        array[array.Length - 1] = firstElement;
+    }
+
+    static void PrintArray(int[] array)
+    {
+        for (int i = 0; i < array.Length; i++)
+        {
+            Console.Write(array[i] + (i < array.Length - 1 ? " " : ""));
+        }
+        Console.WriteLine();
+    }
+}
