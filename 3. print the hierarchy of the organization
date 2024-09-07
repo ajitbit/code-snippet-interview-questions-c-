@@ -1,0 +1,87 @@
+
+
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        int[] employeeIds = { 1, 49, 29, 95, 90, 10, 24, 84, 17, 19, 6 };
+        int[] managerIds = { -1, 17, 6, 49, 29, 1, 6, 29, 10, 6, 1 };
+
+        PrintEmployeeHierarchy(employeeIds, managerIds);
+    }
+
+    static void PrintEmployeeHierarchy(int[] employeeIds, int[] managerIds)
+    {
+        int length = employeeIds.Length;
+
+        // Step 1: Find the CEO (employee with managerId -1)
+        int ceoId = -1;
+        for (int i = 0; i < length; i++)
+        {
+            if (managerIds[i] == -1)
+            {
+                ceoId = employeeIds[i];
+                break;
+            }
+        }
+
+        if (ceoId == -1)
+        {
+            Console.WriteLine("No CEO found.");
+            return;
+        }
+
+        // Array to store employees at each level
+        int[][] hierarchy = new int[length][];
+        for (int i = 0; i < length; i++)
+        {
+            hierarchy[i] = new int[length];
+        }
+
+        // Step 2: Build the hierarchy level by level
+        int currentLevel = 0;
+        hierarchy[currentLevel][0] = ceoId;
+        int countAtCurrentLevel = 1;
+
+        while (countAtCurrentLevel > 0)
+        {
+            int countAtNextLevel = 0;
+            for (int i = 0; i < countAtCurrentLevel; i++)
+            {
+                int managerId = hierarchy[currentLevel][i];
+                for (int j = 0; j < length; j++)
+                {
+                    if (managerIds[j] == managerId)
+                    {
+                        hierarchy[currentLevel + 1][countAtNextLevel++] = employeeIds[j];
+                    }
+                }
+            }
+
+            if (countAtNextLevel > 0)
+            {
+                currentLevel++;
+                countAtCurrentLevel = countAtNextLevel;
+            }
+            else
+            {
+                break;
+            }
+        }
+
+        // Step 3: Print the hierarchy level by level
+        for (int i = 0; i <= currentLevel; i++)
+        {
+            for (int j = 0; j < length; j++)
+            {
+                if (hierarchy[i][j] != 0)
+                {
+                    Console.Write(hierarchy[i][j] + " ");
+                }
+            }
+            Console.WriteLine();
+        }
+    }
+}
