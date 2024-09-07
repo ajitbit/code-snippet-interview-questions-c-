@@ -9,8 +9,8 @@ for example, daily stock prices for 10 days are {7, 3, 2, 5, 6, 3, 7, 4, 1, 10} 
 
 3. you are given two arrays of integer who are relates to each other as:
    
-  1. First array contains employee ids of all the organiztion
-  2. second array contains employee ids of their managers at the same index of the first array
+  i). First array contains employee ids of all the organiztion
+  ii). second array contains employee ids of their managers at the same index of the first array
      for each index in the first employee array, the corresponding index in the second array given that employees manager id
 
 guarantees
