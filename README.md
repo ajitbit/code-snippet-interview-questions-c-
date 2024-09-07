@@ -52,4 +52,11 @@ Some Examples:    INput: abcNdgM      Output: abcgg
                   Input: MrtyNNg      Output: rtyg
 
 
-5.
+5. Reverse the string according to its words
+Input: programming is fun      Output: fun is programming
+
+6. Reverse each word in a string at its own place
+input = Hello world          Output: olleH dlrow
+
+7. Reverse the string without inbuilt function
+input = Hello world          Output: dlroW olleH
