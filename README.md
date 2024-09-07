@@ -60,3 +60,6 @@ input = Hello world          Output: olleH dlrow
 
 7. Reverse the string without inbuilt function
 input = Hello world          Output: dlroW olleH
+
+8. Given a string with some words, print the occurrence of each words.
+Eg: ‘what do you do’ Ans: what=1, do=2, you=1
