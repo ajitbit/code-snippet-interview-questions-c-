@@ -47,23 +47,9 @@ solve by using arrays of numbers and no other data structure or inbuild function
 
 4. 
 If M encountered replace the M with previous character
-
-   If N encountered remove the N and next character
-
-   Some Examples:
-
-   INput: abcNdgM
-
-   Output: abcgg
-
- 
-
-   Input: MrtyNNg
-
-   Output: rtyg
+If N encountered remove the N and next character
+Some Examples:    INput: abcNdgM      Output: abcgg
+                  Input: MrtyNNg      Output: rtyg
 
 
-
-
-
- 5.
+5.
