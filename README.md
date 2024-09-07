@@ -63,3 +63,5 @@ input = Hello world          Output: dlroW olleH
 
 8. Given a string with some words, print the occurrence of each words.
 Eg: ‘what do you do’ Ans: what=1, do=2, you=1
+
+9. Given a string with some words, print the occurrence of each character. Eg: ‘HELLO’ Ans: h-1, e-1, L-2, 0-1 
