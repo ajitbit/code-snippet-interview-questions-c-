@@ -1,0 +1,48 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        string input = "aaa bb accbd";
+        string result = RemoveDuplicateCharacters(input);
+        Console.WriteLine(result); // Output: "abcd"
+    }
+
+    static string RemoveDuplicateCharacters(string input)
+    {
+        // Initialize an empty result string
+        string result = "";
+
+        // Iterate through each character in the input string
+        for (int i = 0; i < input.Length; i++)
+        {
+            char currentChar = input[i];
+
+            // Skip spaces
+            if (currentChar == ' ')
+            {
+                continue;
+            }
+
+            // Check if the current character is already in the result string
+            bool isDuplicate = false;
+            for (int j = 0; j < result.Length; j++)
+            {
+                if (result[j] == currentChar)
+                {
+                    isDuplicate = true;
+                    break;
+                }
+            }
+
+            // If not a duplicate, append it to the result string
+            if (!isDuplicate)
+            {
+                result += currentChar;
+            }
+        }
+
+        return result;
+    }
+}
