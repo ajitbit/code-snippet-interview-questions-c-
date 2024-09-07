@@ -1,0 +1,78 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        // Input string
+        string input = "what do you do";
+
+        // Call the function to count word occurrences
+        CountWordOccurrencesWithoutBuiltIn(input);
+    }
+
+    static void CountWordOccurrencesWithoutBuiltIn(string input)
+    {
+        // Variables to store the words and their counts
+        string[] words = new string[100];  // Assuming a maximum of 100 words
+        int[] wordCounts = new int[100];
+        int wordIndex = 0;
+
+        // Temporary variable to store current word being processed
+        string currentWord = "";
+
+        // Step 1: Loop through each character of the string
+        for (int i = 0; i <= input.Length; i++)
+        {
+            // If space or end of the string is encountered, process the word
+            if (i == input.Length || input[i] == ' ')
+            {
+                if (currentWord != "")
+                {
+                    // Check if the word already exists in the words array
+                    int index = FindWordIndex(words, currentWord, wordIndex);
+
+                    if (index == -1)
+                    {
+                        // If the word doesn't exist, add it to the words array
+                        words[wordIndex] = currentWord;
+                        wordCounts[wordIndex] = 1;
+                        wordIndex++;
+                    }
+                    else
+                    {
+                        // If the word exists, increment its count
+                        wordCounts[index]++;
+                    }
+
+                    // Reset the currentWord for the next word
+                    currentWord = "";
+                }
+            }
+            else
+            {
+                // Build the current word by appending characters
+                currentWord += input[i];
+            }
+        }
+
+        // Step 2: Print the word counts
+        for (int i = 0; i < wordIndex; i++)
+        {
+            Console.WriteLine($"{words[i]} = {wordCounts[i]}");
+        }
+    }
+
+    // Helper function to find the index of a word in the array
+    static int FindWordIndex(string[] words, string word, int wordIndex)
+    {
+        for (int i = 0; i < wordIndex; i++)
+        {
+            if (words[i] == word)
+            {
+                return i;
+            }
+        }
+        return -1;  // Word not found
+    }
+}
