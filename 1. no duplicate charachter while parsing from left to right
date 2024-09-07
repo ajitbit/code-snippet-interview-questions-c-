@@ -1,0 +1,40 @@
+using System;
+
+class Program
+{
+    public static string RemoveDuplicates(string input)
+    {
+        // This array will keep track of characters we have seen so far.
+        // We'll use a boolean array to mark the presence of characters.
+        bool[] seen = new bool[256]; // ASCII characters
+        char[] result = new char[input.Length]; // To store the result characters
+        int resultIndex = 0; // Index for the result array
+
+        for (int i = 0; i < input.Length; i++)
+        {
+            char currentChar = input[i];
+
+            // Skip spaces
+            if (currentChar == ' ')
+                continue;
+
+            // Check if the character has been seen before
+            if (!seen[currentChar])
+            {
+                // If not seen before, mark it as seen and add to result
+                seen[currentChar] = true;
+                result[resultIndex++] = currentChar;
+            }
+        }
+
+        // Convert the result array to a string, trimming unused space
+        return new string(result, 0, resultIndex);
+    }
+
+    static void Main()
+    {
+        string input = "aaa bb accbd";
+        string output = RemoveDuplicates(input);
+        Console.WriteLine(output); // Output: "abcd"
+    }
+}
