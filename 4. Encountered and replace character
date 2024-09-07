@@ -1,0 +1,44 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        // Input strings
+        string input1 = "abcNdgM";
+        string input2 = "MrtyNNg";
+
+        Console.WriteLine(ProcessString(input1)); // Output: abcgg
+        Console.WriteLine(ProcessString(input2)); // Output: rtyg
+    }
+
+    static string ProcessString(string input)
+    {
+        // Use a StringBuilder to build the result efficiently
+        System.Text.StringBuilder result = new System.Text.StringBuilder();
+
+        for (int i = 0; i < input.Length; i++)
+        {
+            // If 'N' is encountered, skip 'N' and the next character
+            if (input[i] == 'N' && i + 1 < input.Length)
+            {
+                i++; // Skip the next character after 'N'
+            }
+            else if (input[i] == 'M')
+            {
+                // If 'M' is encountered, replace it with the previous character (if there is a previous character)
+                if (result.Length > 0)
+                {
+                    result.Append(result[result.Length - 1]);
+                }
+            }
+            else
+            {
+                // For all other characters, just add them to the result
+                result.Append(input[i]);
+            }
+        }
+
+        return result.ToString();
+    }
+}
