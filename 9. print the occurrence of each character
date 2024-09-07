@@ -1,0 +1,53 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        // Input string
+        string input = "HELLO";
+        
+        // Call the function to count character occurrences
+        CountCharacterOccurrencesWithoutBuiltIn(input);
+    }
+
+    static void CountCharacterOccurrencesWithoutBuiltIn(string input)
+    {
+        // Arrays to store characters and their counts
+        char[] characters = new char[256];  // Assuming ASCII characters
+        int[] counts = new int[256];
+        int uniqueCharCount = 0;
+
+        // Step 1: Loop through each character in the string
+        for (int i = 0; i < input.Length; i++)
+        {
+            char currentChar = input[i];
+            bool found = false;
+
+            // Check if the character is already in the array
+            for (int j = 0; j < uniqueCharCount; j++)
+            {
+                if (characters[j] == currentChar)
+                {
+                    counts[j]++;
+                    found = true;
+                    break;
+                }
+            }
+
+            // If the character is not found in the array, add it
+            if (!found)
+            {
+                characters[uniqueCharCount] = currentChar;
+                counts[uniqueCharCount] = 1;
+                uniqueCharCount++;
+            }
+        }
+
+        // Step 2: Print the character counts
+        for (int i = 0; i < uniqueCharCount; i++)
+        {
+            Console.WriteLine($"{characters[i]}-{counts[i]}");
+        }
+    }
+}
