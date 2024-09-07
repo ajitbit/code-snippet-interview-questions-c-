@@ -65,3 +65,11 @@ input = Hello world          Output: dlroW olleH
 Eg: ‘what do you do’ Ans: what=1, do=2, you=1
 
 9. Given a string with some words, print the occurrence of each character. Eg: ‘HELLO’ Ans: h-1, e-1, L-2, 0-1 
+
+10 . How to perform Right circular rotation of an array
+input: 1 2 3 4 5, output: 5 1 2 3 4
+
+11. How to perform Left circular rotation of an array?
+input: 1 2 3 4 5, output: 2 3 4 5 1
+
+12. 
